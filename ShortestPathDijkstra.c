@@ -9,7 +9,7 @@
 //===========================================================================
 char vdata[]={'A','B','C','D','E','F','G'};
 
-int adj[MAX_VTXS][MAX_VTXS]={
+int adjMatrix[MAX_VTXS][MAX_VTXS]={
 	{	0,	7,	INF, INF,	3,	10, INF },
 	{	7,	0,	  4,  10,	2,	 6, INF },
 	{ INF,	4,	  0,   2, INF, INF, INF },
@@ -56,7 +56,7 @@ void shortest_path_dijkstra(int start)
 {
 	int i, u, w;
 	for (i = 0; i<MAX_VTXS; i++) {
-		dist[i] = adj[start][i];
+		dist[i] = adjMatrix[start][i];
 		path[i] = start;
 		found[i] = 0;
 	}
@@ -70,8 +70,8 @@ void shortest_path_dijkstra(int start)
 
 		for (w = 0; w<MAX_VTXS; w++) {
 			if (found[w] == 0) {
-				if (dist[u] + adj[u][w] < dist[w]) {
-					dist[w] = dist[u] + adj[u][w];
+				if (dist[u] + adjMatrix[u][w] < dist[w]) {
+					dist[w] = dist[u] + adjMatrix[u][w];
 					path[w] = u;
 				}
 			}
