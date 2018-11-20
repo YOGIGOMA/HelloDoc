@@ -2,10 +2,13 @@
 #include <stdlib.h>
 #define MAX_VTXS	7
 #define INF 		9999
+
+
 //===========================================================================
 // Dijkstra의 최단경로
 //===========================================================================
 char vdata[]={'A','B','C','D','E','F','G'};
+
 int adj[MAX_VTXS][MAX_VTXS]={
 	{	0,	7,	INF, INF,	3,	10, INF },
 	{	7,	0,	  4,  10,	2,	 6, INF },
@@ -18,6 +21,7 @@ int adj[MAX_VTXS][MAX_VTXS]={
 int path[MAX_VTXS];
 int dist[MAX_VTXS];
 int found[MAX_VTXS];
+
 void print_step(int step)				// 진행 단계별 상황출력 
 {
 	int i;
